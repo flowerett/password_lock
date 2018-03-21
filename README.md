@@ -1,6 +1,6 @@
 # PasswordLock
 
-**TODO: Add description**
+Live Example of GenServer and GenServer Testing
 
 ## Installation
 
@@ -18,4 +18,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/password_lock](https://hexdocs.pm/password_lock).
-
