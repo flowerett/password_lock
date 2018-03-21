@@ -12,6 +12,10 @@ defmodule PasswordLock do
 
   @doc """
   Initiate a new server with the given password
+  ## Examples
+
+      iex> {:ok, pid} = PasswordLock.start_link("secret")
+      {:ok, #PID<0.152.0>}
   """
   def start_link(password) do
     GenServer.start_link(__MODULE__, password, [])
@@ -19,6 +23,10 @@ defmodule PasswordLock do
 
   @doc """
   Unlocks the given password
+  ## Examples
+
+      iex> PasswordLock.unlock(pid, "secret")
+      :ok
   """
   def unlock(pid, password) do
     GenServer.call(pid, {:unlock, password})
@@ -26,6 +34,10 @@ defmodule PasswordLock do
 
   @doc """
   Resets the given password
+  ## Examples
+
+      iex> PasswordLock.reset(pid, {"secret", "s3cr3t"})
+      :ok
   """
   def reset(pid, {old_password, new_password}) do
     GenServer.call(pid, {:reset, {old_password, new_password}})
