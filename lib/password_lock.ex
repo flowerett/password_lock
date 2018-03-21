@@ -62,13 +62,13 @@ defmodule PasswordLock do
       new_state = List.delete(state, old_password)
       {:reply, :ok, [new_password | new_state]}
     else
-      write_to_logfile(new_password)
+      write_to_logfile(old_password)
       {:reply, {:error, "wrong password"}, state}
     end
   end
 
   defp write_to_logfile(msg) do
     {:ok, pid} = PasswordLogger.start_link()
-    PasswordLogger.log_incorrect(pid, "wrong password #{msg}")
+    PasswordLogger.log_incorrect(pid, "wrong password '#{msg}'")
   end
 end
